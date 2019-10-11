@@ -25,12 +25,31 @@ var maxProfit = function(prices) {
     for (let i = 0; i<prices.length-1; i++) {
         for(let j = i+1; j<prices.length; j++) {
             if (prices[i] < prices[j]) {
-              let dif = prices[j] - prices[i]
-              if (dif > maxProfit) {
-                maxProfit = dif
+              let profit = prices[j] - prices[i]
+              if (profit > maxProfit) {
+                maxProfit = profit
               }
             }
         }
     }
     return maxProfit;
 };
+
+var maxProfit = function(prices) {
+  var minPrice = 999999;
+  var maxProfit = 0;
+  
+  for (let i = 0; i < prices.length; i++) {
+      if (prices[i] < minPrice)
+          minPrice = prices[i];
+      else if (prices[i] - minPrice > maxProfit)
+          maxProfit = prices[i] - minPrice;
+  }
+  return maxProfit;
+};
+
+// Complexity Analysis
+
+// Time complexity : O(n)O(n). Only a single pass is needed.
+
+// Space complexity : O(1)O(1). Only two variables are used.
