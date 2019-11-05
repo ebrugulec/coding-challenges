@@ -41,4 +41,20 @@ var lengthOfLongestSubstring = function(s) {
     return count
 };
 
-console.log(lengthOfLongestSubstring("au"))
+var lengthOfLongestSubstring2 = function(s) {
+  let n = s.length
+  let newSet = new Set()
+  
+  let ans=0; i=0; j=0;
+  
+  while (i<n && j<n) {
+    if (!newSet.has(s[j])) {
+      newSet.add(s[j++])
+        ans = Math.max(ans, j-i)
+    } else {
+      newSet.delete(s[i++])
+    }
+  }
+  return ans
+};
+
