@@ -22,7 +22,7 @@ const count_plus_one = (numberList) => {
   let totalCount = 0
 
   numberList.forEach(item => {
-    if (plusOneList[`${item}`] === undefined) {
+    if (!plusOneList[`${item}`]) {
       plusOneList[`${item}`] = item + 1
     }
   })
